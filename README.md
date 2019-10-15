@@ -1,2 +1,3 @@
-# PPJI
-Panduan Penulisan Jurnal Ilmiah
+# Panduan Proyek 2
+Panduan Proyek 2
+
