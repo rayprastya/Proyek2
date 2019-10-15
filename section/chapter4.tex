@@ -1,0 +1,72 @@
+\chapter{Contoh Error}
+
+\par
+Disini kami akan memberikan contoh dari beberapa error aplikasi 
+
+\begin{enumerate}
+\item Error Syntax 
+\par
+Program Bahasa C dibawah ini akan error pada baris ke-4 karena pada baris sebelumnya (baris ke-3) statement belum ditutup menggunakan titik koma (;)
+\begin{verbatim}
+	void main() {
+	int a=2, b=0;
+	printf("%i", a)
+	printf("%i", b);
+	}
+\end{verbatim}
+\item Error Runtime
+\par 
+contoh yang banyak terjadi error pada aplikasi adalah error runtime karena pembagian suatu bilangan dengan nol. Lihat contoh program bahasa c berikut ini Secara syntax tentu tidak terdapat error, namun jika dirunning, operasi pembagian pada baris ke-5 akan menyebabkan error “division by zero”.
+\begin{verbatim}
+	void main() {
+	int a=2, b=0;
+	printf("%i", a)
+	printf("%i", b);
+	printf("%i", a/b);
+	}
+\end{verbatim}
+\item Logical Error
+\par
+contoh error yang termasuk dalam jenis Logical Error adalah saat kita membuat sebuah program yang menghasilkan nilai B dari suatu lingkaran yang A diinput oleh user. Jika user menginputkan nilai 7, tentu program seharusnya akan menampilkan nilai 154. Namun jika ternyata program tersebut tidak menghasilkan hasil sesuai yang diharapkan, inilah yang disebut sebagai logical error.
+\begin{verbatim}
+void main() {
+int A;
+float B;
+printf("Masukkan : ");
+scanf("%i", &A);
+luas = 2 * 3.14 * A * A;
+printf("%f", B);
+}
+\end{verbatim}
+\item \textit{Database}
+\par
+Contoh kesalahan dalam \textit{Database} sebagai berikut:
+\begin{enumerate}
+\item Semua kesalahan internal ( ORA-600)
+\item blok kesalahan korupsi ( ORA-1578)
+\item kesalahan deadlock ( ORA-60) 
+\item \textit{Error message string}
+\par 
+Pesan kesalahan biasanya berisi informasi diagnostik tentang penyebab kesalahan. Banyak pesan kesalahan memiliki variabel substitusi di mana informasi, seperti nama objek yang menghasilkan kesalahan, dimasukkan.
+\item \textit{Severity}
+\par 
+Tingkat keparahan kesalahan mengindikasikan seberapa serius kesalahan tersebut. Kesalahan yang memiliki tingkat keparahan yang rendah, seperti 1 atau 2, adalah pesan informasi atau peringatan tingkat rendah. Kesalahan yang memiliki tingkat keparahan tinggi menunjukkan masalah yang harus diatasi secepat mungkin dan sesegera mungkin.
+\item \textit{Procedure name}
+\par 
+\textit{Procedure name} adalah sebuah nama prosedur yang tersimpan atau pemicu di mana kesalahan telah terjadi.
+\item \textit{Line number}
+\par 
+Menunjukkan sebuah pernyataan yang berada dalam sebuah \textit{batch}, prosedur tersimpan, pemicu, atau fungsi yang menghasilkan sebuah kesalahan.
+\end{enumerate}
+\item Versi interpreter atau \textit{compiler}
+\par 
+error dalam bahasa pemrograman disini kita akan menjalankan program "hello world" dan pada saat dijalankan terdapat peringatan sebagai berikut :
+\begin{verbatim}
+java.lang.UnsupportedClassVersionError: "hello world" :
+ Unsupported major.minor version 51.0
+    at java.lang.ClassLoader.defineClass1(Native Method)
+    at java.lang.ClassLoader.defineClassCond(Unknown Source)
+       .........................................
+\end{verbatim}
+Untuk memperbaiki masalah yang ada diatas, kita harus mencoba menjalankan kode Java dengan versi Java JRE yang lebih baru atau menentukan parameter target ke \textit{compiler} Java untuk memerintahkan \textit{compiler} membuat kode program yang kompatibel dengan versi Java sebelumnya.
+\end{enumerate}

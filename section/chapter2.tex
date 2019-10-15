@@ -1,0 +1,173 @@
+\chapter{Standar Penulisan Program}
+
+\par 
+Dalam pengerjaan suatu program, hendaknya baris \textit{code} yang kita buat sesuai standar dari penulisan program, karena setiap bahasa pemrograman memiliki aturan penulisannya sendiri-sendiri, contohnya pada bahasa C, bahasa C bersifat \textit{case sensitifity} dimana huruf kapital dan huruf kecil memiliki arti yang berbeda,contohnya pada gambar berikut.
+
+\begin{verbatim}
+#include <stdio.h>
+
+int main(void) {
+    printf("Hello World!\n");
+    Return 0;
+}
+\end{verbatim}
+
+\par 
+Pada baris \textit{code} berikut terdapat parameter \textit{return} yang seharusnya diketik dengan huruf kecil, karena pada awalan \textit{parameter return} diketik menggunakan huruf kapital, sehingga baris \textit{code} tersebut menghasilkan \textit{error}.
+\par 
+Sehingga pada dasarnya, sebaiknya saat mengerjakan suatu program hendaknya mengikuti standar penulisan dari bahasa program tersebut dan terstruktur, agar memudahkan proses pengerjaan suatu program dan terlihat lebih rapi.
+
+\section{Standar Penulisan Nama Variabel}
+\par 
+Setiap pemberian nama pada variabel hendaknya sesuai dengan isi/\textit{context} dari \textit{code} yang sedang dibuat, untuk mempermudah proses pengembangan sebuah program, contoh penamaan variabel yang baik adalah sebagai berikut.
+
+\begin{verbatim}
+	public static void main(String[] args) {	
+		int NPM;		
+		NPM = 1184069;
+		System.out.println(NPM);
+	}
+\end{verbatim}
+
+\par 
+Didalam program tersebut terdapat sebuah variabel yang diberi nama NPM (Nomor Pokok Mahasiswa), variabel tersebut diberi nama NPM karena \textit{output} yang diharapkan nantinya adalah pencetakan Nomor Pokok Mahasiswa, jika variabel tersebut diberikan nama yang asal-asalan, hal ini akan mempersulit developer itu sendiri saat hendak menggunakan variabel itu kembali karena nama yang diberikan pada variabel itu asal-asalan.
+
+
+\section{Standar Penamaan Fungsi}
+\par 
+Sama hal-nya dengan pemberian nama pada sebuah variabel, penamaan fungsi pada suatu program hendaknya disesuaikan dengan \textit{output}/isi dari proses fungsi tersebut, karena pemberian nama fungsi yang tidak sesuai dengan \textit{output} atau isi yang diharapkan hanya akan mempersulit developer dalam proses pengembangan sebuah aplikasi, contoh penamaan fungsi yang baik adalah sebagai berikut.
+
+\begin{verbatim}
+	def getURL(self,PROYEK):
+		if PROYEK == '2':
+			active_url = "https://cobahayo.herokuapp.com/"
+		else:
+			active_url = "https://proyek3d4tiv2.herokuapp.com/"
+		return active_url
+		
+\end{verbatim}
+
+\par 
+Output dari program diatas ditunjukkan untuk mahasiswa yang hendak mengikuti proyek 2, yang nantinya jika mahasiswa menginput angka 2 ( Proyek 2 ), maka program akan mengaktifkan \textit{url} \url{"https://cobahayo.herokuapp.com/"} , jika fungsi tersebut diberikan nama yang asal-asalan, hal ini akan mempersulit developer dalam melakukan pengembangan pada aplikasi.
+
+\section{Standar Pembuatan Fungsi}
+\par 
+Fungsi berfungsi untuk menjalankan suatu tugas yang ditulis dalam 1 blok \textit{code} yang akan dieksekusi apabila fungsi tersebut dipanggil pada program utama. Pembuatan suatu fungsi sebaiknya dibedakan sesuai dengan pekerjaan yang dilakukan oleh fungsi tersebut, tidak dianjurkan untuk mencampurkan berbagai macam pekerjaan pada 1 fungsi, hal ini dapat menimbulkan \textit{error}, sehingga sebaiknya fungsi dibuat untuk 1 pekerjaan saja. Tidak membuat 2 buah fungsi dengan jenis pekerjaan yang sama karena 1 fungsi saja cukup karena fungsi tersebut dapat digunakan secara terus menerus tanpa harus membuat fungsi baru lagi dengan cara kerja yang sama. Isi dari fungsi harus jelas, karena pembuatan fungsi yang tidak memiliki kejelasan akan cara kerjanya dapat menimbulkan \textit{error}, berikut contoh pembuatan fungsi yang baik.
+
+\begin{verbatim}
+<?php 
+$db = mysqli_connect("localhost","root","","registrasi");
+
+function query($query){
+	global $db;
+	$result = mysqli_query($db,$query);
+	$rows = [];
+	while( $row = mysqli_fetch_assoc($result)) {
+		$rows[] = $row; 
+	}
+	return $rows;
+}
+
+function ubah($data){
+	global $db;
+
+	$id = $data["id"];
+	$Nama= htmlspecialchars($data["nama"]);
+	$NPM= htmlspecialchars($data["npm"]);
+	$Email= htmlspecialchars($data["email"]);
+	$Jurusan= htmlspecialchars($data["jurusan"]); 
+	$Dosen= htmlspecialchars($data["dosen"]);
+	$laporanLama= htmlspecialchars($data["laporanLama"]);
+
+	if ($_FILES ['laporan']['error'] === 4) {
+		$Laporan = $laporanLama;
+	} else {
+		$Laporan = upload();
+	}
+	$query = "UPDATE mahasiswa SET 
+				npm = '$NPM',
+				nama = '$Nama',
+				email = '$Email',
+				jurusan = '$Jurusan',
+				dosen = '$Dosen',
+				laporan = '$Laporan' 
+				WHERE id = $id
+			";
+	mysqli_query($db,$query);
+
+	return mysqli_affected_rows($db);
+}
+
+?>
+\end{verbatim}
+
+\section{Pembuatan Program Utama}
+\par 
+Program utama adalah bagian dari program yang memiliki fungsi untuk memanggil \textit{class} dan \textit{method} yang dibutuhkan untuk menjalankan suatu program suatu program, dalam standar penulisan program sebaiknya program utama ditempatkan di tempat yang berbeda dari penempatan  fungsi, \textit{class}, dan \textit{method}. Jika program utama ditempatkan pada satu tempat yang sama dengan fungsi, \textit{class}, dan \textit{method} program akan terlihat tidak tertata rapi, dan bahkan dapat menyebabkan terjadinnya \textit{error}. Contoh penempatan program utama yang baik adalah sebagai berikut.
+
+\begin{verbatim}
+	
+	public static double factorial(double d) {
+		// mengurutkan elemen
+		if (d<=1)
+		{
+			return 1;
+		} else {
+			return d * factorial(d-1);
+		}
+	}
+
+	public static void main(String[] args) {
+	
+		
+		System.out.println(factorial(3));
+		
+	}
+
+}
+\end{verbatim}
+\par 
+Pembuatan sebuah fungsi, \textit{class}, dan \textit{method} dapat dilakukan diluar program utama, sehingga program utama tinggal memanggil fungsi, \textit{class}, dan \textit{method} yang dibutuhkan untuk menjalankan sebuah program.
+
+
+
+\section{Pemberian Komentar}
+\par 
+Pemberian komentar berperan penting dalam proses pengembangan sebuah program apalagi jika bekerja dalam suatu tim, pemberian komentar dapat membantu untuk memperjelas bagian fungsi yang masih ambigu, atau komentar dapat digunakan sebagai media komunikasi antar developer dalalm proses pengembangan suatu program.
+
+\begin{verbatim}
+//------------ faktorial------------------------
+	
+	public static double factorial(double d) {
+		// mengurutkan elemen
+		if (d<=1)
+		{
+			return 1;
+		} else {
+			return d * factorial(d-1);
+		}
+	}
+	
+//----------- running program---------------------------
+	
+	public static void main(String[] args) {
+	
+		
+		System.out.println(factorial(3));
+		
+	}
+
+}
+\end{verbatim}
+\par 
+Sebuah komentar dapat ditandai dengan "simbol-simbol" berikut.
+\begin{enumerate}
+\item "//----"
+\item "//"
+\item "/* */"
+\item 
+\begin{verbatim}
+"<!-- -->"
+\end{verbatim}
+
+\end{enumerate}

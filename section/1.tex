@@ -1,0 +1,40 @@
+\chapter{Langkah-Langkah Penyelesaian Error}
+
+\par
+Dalam suatu program terdapat kesalahan \textit{internal} maupun \textit{external} kesalahan \textit{internal} contoh kesalahannya adalah \textit{code} program yang sedang dibuat mengalami kesalahan \textit{syntax} yang membuat \textit{code} program tersebut menjadi \textit{error} dan menjadikan program tersebut tidak bisa dijalankan dengan baik. selanjutnnya untuk kesalahan \textit{external} bisa muncul karena ada kesalahan dalam \textit{database}, fungsi API (antarmuka pemrograman aplikasi), perbedaan versi interpreter dan \textit{compiler} dll. berikut adalah langkah-langkah untuk menangani error tersebut.
+
+\section{kesalahan \textit{internal}}
+\begin{enumerate}
+\item \textit{Syntax Error}
+\par 
+\textit{Syntax error} merupakan jenis kesalahan yang terjadi akibat perintah yang diketikan tidak sesuai dengan aturan \textit{code} bahasa pemrograman yang sedang digunakan. Karena setiap bahasa pemrograman memiliki aturan pengkodean yang harus dipatuhi. Contohnya pada bahasa pemrograman C, setiap perintah harus diakhiri dengan tanda titik koma (;), jika tidak diakhiri dengan titik koma(;) maka program akan menampilkan pesan \textit{syntax error} saat dijalankan. Maka dari itu untuk menghindari kesalahan dalam penulisan program kita harus mengetahui tata cara penulisan program atau aturan dalam bahasa pemrograman tersebut agar tidak terjadi kesalahan \textit{syntax}.
+
+\item \textit{Run-time Error}
+\par
+\textit{Run-time Error} merupakan jenis kesalahan yang terjadi karena ketika \textit{code} program melakukan sesuatu yang tidak memungkinkan. Contohnya dalam bahasa C++, Kebocoran memori Program-program secara terus menerus menggunakan \textit{RAM (random access memory} dan mencegah lokasi memori dari digunakan untuk tugas-tugas lain setelah pekerjaan selesai. Menjalankan loop tak terbatas atau tidak membatalkan memori yang terpakai dapat menyebabkan \textit{run-time error}. untuk mengatasinya kita tidak boleh salah dalam mengalokasikan memori atau program hendak mengakses file namun file tersebut tidak ditemukan.
+
+\item \textit{Logical Error}
+\par
+\textit{Logical Error} kesalahan yang satu ini merupakan jenis \textit{error} yang paling susah terdeteksi karena terjadinya bukan karena kesalahan penulisan \textit{syntax} atau kesalahan proses \textit{run-time}, namun kesalahan dari sisi programmer, dalam hal ini algoritma yang digunakan. Karena logikanya salah, tentunya \textit{output} yang dihasilkan juga akan salah. Untuk mendeteksi dimana letak kesalahannya, bukanlah hal yang mudah. Terkadang kita harus mengurutkan algoritma yang digunakan baris per baris \textit{line-by-line}.
+\end{enumerate}
+
+\section{kesalahan \textit{external}}
+\begin{enumerate}
+\item \textit{Database}
+\par
+\textit{Database} adalah kumpulan informasi atau data yang dinormalisasi agar tidak terjadi redudansi yang disimpan dalam media elektronik. fungsi \textit{database} untuk menyimpan data yang nanti akan digunakan kembali. dalam \textit{database} juga tidak luput dari kesalahan, kesalahan yang terdapat pada database bisa sangat berakibat fatal dalam sebuah aplikasi karena \textit{database} menyimpan semua data-data yang akan digunakan atau data yang di\textit{input}kan oleh \textit{user}. kesalahan dalam merancang \textit{database} dapat dicegah dengan beberapa langkah sebagai berikut.
+\begin{enumerate}
+\item Penyalahgunaan tipe data
+\par 
+Sebelum merancang database apapun, kita harus mengetahui apa saja yang dibutuhkan. Misalnya, database yang anda pakai dapat menawarkan jenis \textit{INTERGER}, tapi sebaiknya menggunakan \textit{TINYINT} untuk menyimpannya. Kolom tanggal dan waktu, \textit{floating point} dan angka desimal. Beberapa \textit{database} bahkan mendukung \textit{array} Jadi, apapun database yang dipilih jangan salah  untuk mendefinisikan tipe data yang tepat untuk setiap kolom. Hal ini dapat menghemat banyak \textit{cost} dan \textit{space} pada penyimpanan anda.
+\item Menggunakan Tipe Data Selain \textit{integer}/\textit{uuid} pada \textit{Primary Key} 
+\par
+Kesalahan fatal lain yang sering dilakukan dalam membuat \textit{database} adalah menggunakan tipe data selain \textit{integer}/\textit{uuid} pada \textit{primary Key}. Hal itu memang bisa dilakukan, tetapi itu bukanlah \textit{best practice} atau bukan cara yang terbaik.
+\item Mengabaikan \textit{Timezone}
+\par 
+Mengelola zona waktu pada \textit{field DATE} dan \textit{DATE TIME} dapat menjadi masalah serius dalam sistem. Sistem harus selalu menyajikan tanggal dan waktu yang tepat kepada \textit{user}, terutama di zona waktu mereka sendiri. Misalnya, waktu kadaluawarsanya suatu penawaran khusus (fitur yang paling penting di setiap toko online yang ada) harus dipahami oleh semua \textit{user} dengan cara yang sama. Jika kita hanya mengatakan “promosi berakhir pada tanggal 25 November”, mereka akan menganggap promosinya akan berakhir pada tengah malam 25 November di zona waktu mereka sendiri. Berhati-hatilah, para \textit{user} harus melihat tanggal promosi di zona waktu mereka sendiri. Dalam system yang memiliki \textit{multi-timezone}, \textit{field} tipe \textit{DATE} harusnya itu tidak digunakan. \textit{Field} Ini harus selalu menjadi tipe \textit{TIMESTAMP}.
+\end{enumerate}
+\item Versi interpreter dan \textit{compiler}
+\par
+Interpreter adalah perangkat lunak yang mampu mengeksekusi \textit{code} program atau sebuah perintah yang lalu menterjemahkannya ke dalam bahasa mesin, sehingga mesin melakukan instruksi yang diminta oleh \textit{programmer} tersebut. sedangkan \textit{Compiler} sendiri adalah program sistem yang digunakan sebagai alat bantu dalam pemrogaman.Perangkat lunak yang melakukan proses penterjemahan \textit{code} (yang dibuat programmer) ke dalam bahasa mesin. Hasil dari terjemahan ini adalah bahasa mesin. Pada beberapa \textit{compiler}, \textit{output} berupa bahasa mesin dilaksanakan dengan sebuah proses \textit{assembler} yang berbeda-beda. ketidak samaan versi dari interpreter dan \textit{compiler} atau perbedaan versi yang menjadikan tidak \textit{comaptible} dengan sebuah perintah atau \textit{code} program yang menjadikan \textit{code} program tersebut tidak bisa dieksekusi oleh bahasa mesin, cara untuk menanganinya adalah menyesuaikan versi iterpreter dan \textit{compiler}agar textit{comaptible} dengan \textit{code} program.
+\end{enumerate}
